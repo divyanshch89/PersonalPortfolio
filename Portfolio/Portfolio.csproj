@@ -1,5 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\packages\JavaScriptEngineSwitcher.V8.2.0.0\build\JavaScriptEngineSwitcher.V8.props" Condition="Exists('..\packages\JavaScriptEngineSwitcher.V8.2.0.0\build\JavaScriptEngineSwitcher.V8.props')" />
   <Import Project="..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\build\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props" Condition="Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\build\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" />
   <Import Project="..\packages\Microsoft.Net.Compilers.1.0.0\build\Microsoft.Net.Compilers.props" Condition="Exists('..\packages\Microsoft.Net.Compilers.1.0.0\build\Microsoft.Net.Compilers.props')" />
   <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
@@ -44,14 +45,55 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="ClearScript, Version=5.4.7.0, Culture=neutral, PublicKeyToken=935d0c957da47c73, processorArchitecture=MSIL">
+      <HintPath>..\packages\JavaScriptEngineSwitcher.V8.2.0.0\lib\net451\ClearScript.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="JavaScriptEngineSwitcher.Core, Version=2.0.0.0, Culture=neutral, PublicKeyToken=c608b2a8cc9e4472, processorArchitecture=MSIL">
+      <HintPath>..\packages\JavaScriptEngineSwitcher.Core.2.0.0\lib\net451\JavaScriptEngineSwitcher.Core.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="JavaScriptEngineSwitcher.Msie, Version=2.0.0.0, Culture=neutral, PublicKeyToken=c608b2a8cc9e4472, processorArchitecture=MSIL">
+      <HintPath>..\packages\JavaScriptEngineSwitcher.Msie.2.0.0\lib\net451\JavaScriptEngineSwitcher.Msie.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="JavaScriptEngineSwitcher.V8, Version=2.0.0.0, Culture=neutral, PublicKeyToken=c608b2a8cc9e4472, processorArchitecture=MSIL">
+      <HintPath>..\packages\JavaScriptEngineSwitcher.V8.2.0.0\lib\net451\JavaScriptEngineSwitcher.V8.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="JSPool, Version=2.0.0.0, Culture=neutral, PublicKeyToken=2fc7775f73072640, processorArchitecture=MSIL">
+      <HintPath>..\packages\JSPool.2.0.0\lib\net451\JSPool.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="Microsoft.CSharp" />
+    <Reference Include="MsieJavaScriptEngine, Version=2.0.0.0, Culture=neutral, PublicKeyToken=a3a2846a37ac0d3e, processorArchitecture=MSIL">
+      <HintPath>..\packages\MsieJavaScriptEngine.2.0.0\lib\net451\MsieJavaScriptEngine.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=9.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.9.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="React.Core, Version=3.0.0.0, Culture=neutral, PublicKeyToken=9aed67b161f7db78, processorArchitecture=MSIL">
+      <HintPath>..\packages\React.Core.3.0.0\lib\net40\React.Core.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="React.Web, Version=3.0.0.0, Culture=neutral, PublicKeyToken=9aed67b161f7db78, processorArchitecture=MSIL">
+      <HintPath>..\packages\React.Web.3.0.0\lib\net40\React.Web.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="React.Web.Mvc4, Version=3.0.0.0, Culture=neutral, PublicKeyToken=9aed67b161f7db78, processorArchitecture=MSIL">
+      <HintPath>..\packages\React.Web.Mvc4.3.0.0\lib\net40\React.Web.Mvc4.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
+    <Reference Include="System.Runtime.Caching" />
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
     <Reference Include="System.Web.ApplicationServices" />
@@ -102,6 +144,14 @@
       <Private>True</Private>
       <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.WebPages.Razor.dll</HintPath>
     </Reference>
+    <Reference Include="VroomJs, Version=1.2.3.0, Culture=neutral, PublicKeyToken=e7c52e67fcb0044f, processorArchitecture=MSIL">
+      <HintPath>..\packages\VroomJs.1.2.3\lib\net45\VroomJs.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="WebActivatorEx, Version=2.0.0.0, Culture=neutral, PublicKeyToken=7b26dc2a43f6a0d4, processorArchitecture=MSIL">
+      <HintPath>..\packages\WebActivatorEx.2.1.0\lib\net40\WebActivatorEx.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="WebGrease">
       <Private>True</Private>
       <HintPath>..\packages\WebGrease.1.5.2\lib\WebGrease.dll</HintPath>
@@ -110,15 +160,12 @@
       <Private>True</Private>
       <HintPath>..\packages\Antlr.3.4.1.9004\lib\Antlr3.Runtime.dll</HintPath>
     </Reference>
-  </ItemGroup>
-  <ItemGroup>
-    <Reference Include="Newtonsoft.Json">
-      <HintPath>..\packages\Newtonsoft.Json.6.0.4\lib\net45\Newtonsoft.Json.dll</HintPath>
-    </Reference>
+    <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
+    <Compile Include="App_Start\ReactConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Global.asax.cs">
@@ -129,24 +176,117 @@
   <ItemGroup>
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\default.css" />
+    <Content Include="Content\font-awesome\css\font-awesome.css" />
+    <Content Include="Content\font-awesome\css\font-awesome.min.css" />
+    <Content Include="Content\font-awesome\fonts\fontawesome-webfont.svg" />
+    <Content Include="Content\fontello\css\animation.css" />
+    <Content Include="Content\fontello\css\fontello-codes.css" />
+    <Content Include="Content\fontello\css\fontello-embedded.css" />
+    <Content Include="Content\fontello\css\fontello-ie7-codes.css" />
+    <Content Include="Content\fontello\css\fontello-ie7.css" />
+    <Content Include="Content\fontello\css\fontello.css" />
+    <Content Include="Content\fontello\font\fontello.svg" />
+    <Content Include="Content\fonts.css" />
+    <Content Include="Content\fonts\librebaskerville\librebaskerville-bold-webfont.svg" />
+    <Content Include="Content\fonts\librebaskerville\librebaskerville-italic-webfont.svg" />
+    <Content Include="Content\fonts\librebaskerville\librebaskerville-regular-webfont.svg" />
+    <Content Include="Content\fonts\opensans\OpenSans-Bold-webfont.svg" />
+    <Content Include="Content\fonts\opensans\OpenSans-BoldItalic-webfont.svg" />
+    <Content Include="Content\fonts\opensans\OpenSans-ExtraBold-webfont.svg" />
+    <Content Include="Content\fonts\opensans\OpenSans-ExtraBoldItalic-webfont.svg" />
+    <Content Include="Content\fonts\opensans\OpenSans-Italic-webfont.svg" />
+    <Content Include="Content\fonts\opensans\OpenSans-Light-webfont.svg" />
+    <Content Include="Content\fonts\opensans\OpenSans-LightItalic-webfont.svg" />
+    <Content Include="Content\fonts\opensans\OpenSans-Regular-webfont.svg" />
+    <Content Include="Content\fonts\opensans\OpenSans-Semibold-webfont.svg" />
+    <Content Include="Content\fonts\opensans\OpenSans-SemiboldItalic-webfont.svg" />
+    <Content Include="Content\layout.css" />
+    <Content Include="Content\magnific-popup.css" />
+    <Content Include="Content\media-queries.css" />
     <Content Include="favicon.ico" />
-    <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
-    <Content Include="Scripts\bootstrap.js" />
-    <Content Include="Scripts\bootstrap.min.js" />
-    <None Include="Scripts\jquery-1.10.2.intellisense.js" />
-    <Content Include="Scripts\jquery-1.10.2.js" />
-    <Content Include="Scripts\jquery-1.10.2.min.js" />
-    <None Include="Scripts\jquery.validate-vsdoc.js" />
-    <Content Include="Scripts\jquery.validate.js" />
-    <Content Include="Scripts\jquery.validate.min.js" />
-    <Content Include="Scripts\jquery.validate.unobtrusive.js" />
-    <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
-    <Content Include="Scripts\modernizr-2.6.2.js" />
-    <Content Include="Scripts\respond.js" />
-    <Content Include="Scripts\respond.min.js" />
-    <Content Include="Scripts\_references.js" />
+    <Content Include="Content\font-awesome\fonts\fontawesome-webfont.eot" />
+    <Content Include="Content\font-awesome\fonts\fontawesome-webfont.ttf" />
+    <Content Include="Content\font-awesome\fonts\fontawesome-webfont.woff" />
+    <Content Include="Content\font-awesome\fonts\FontAwesome.otf" />
+    <Content Include="Content\font-awesome\less\bordered-pulled.less" />
+    <Content Include="Content\font-awesome\less\core.less" />
+    <Content Include="Content\font-awesome\less\fixed-width.less" />
+    <Content Include="Content\font-awesome\less\font-awesome.less" />
+    <Content Include="Content\font-awesome\less\icons.less" />
+    <Content Include="Content\font-awesome\less\larger.less" />
+    <Content Include="Content\font-awesome\less\list.less" />
+    <Content Include="Content\font-awesome\less\mixins.less" />
+    <Content Include="Content\font-awesome\less\path.less" />
+    <Content Include="Content\font-awesome\less\rotated-flipped.less" />
+    <Content Include="Content\font-awesome\less\spinning.less" />
+    <Content Include="Content\font-awesome\less\stacked.less" />
+    <Content Include="Content\font-awesome\less\variables.less" />
+    <Content Include="Content\font-awesome\scss\font-awesome.scss" />
+    <Content Include="Content\font-awesome\scss\_bordered-pulled.scss" />
+    <Content Include="Content\font-awesome\scss\_core.scss" />
+    <Content Include="Content\font-awesome\scss\_fixed-width.scss" />
+    <Content Include="Content\font-awesome\scss\_icons.scss" />
+    <Content Include="Content\font-awesome\scss\_larger.scss" />
+    <Content Include="Content\font-awesome\scss\_list.scss" />
+    <Content Include="Content\font-awesome\scss\_mixins.scss" />
+    <Content Include="Content\font-awesome\scss\_path.scss" />
+    <Content Include="Content\font-awesome\scss\_rotated-flipped.scss" />
+    <Content Include="Content\font-awesome\scss\_spinning.scss" />
+    <Content Include="Content\font-awesome\scss\_stacked.scss" />
+    <Content Include="Content\font-awesome\scss\_variables.scss" />
+    <Content Include="Content\fontello\font\fontello.eot" />
+    <Content Include="Content\fontello\font\fontello.ttf" />
+    <Content Include="Content\fontello\font\fontello.woff" />
+    <Content Include="Content\fonts\librebaskerville\librebaskerville-bold-webfont.eot" />
+    <Content Include="Content\fonts\librebaskerville\librebaskerville-bold-webfont.ttf" />
+    <Content Include="Content\fonts\librebaskerville\librebaskerville-bold-webfont.woff" />
+    <Content Include="Content\fonts\librebaskerville\librebaskerville-italic-webfont.eot" />
+    <Content Include="Content\fonts\librebaskerville\librebaskerville-italic-webfont.ttf" />
+    <Content Include="Content\fonts\librebaskerville\librebaskerville-italic-webfont.woff" />
+    <Content Include="Content\fonts\librebaskerville\librebaskerville-regular-webfont.eot" />
+    <Content Include="Content\fonts\librebaskerville\librebaskerville-regular-webfont.ttf" />
+    <Content Include="Content\fonts\librebaskerville\librebaskerville-regular-webfont.woff" />
+    <Content Include="Content\fonts\opensans\OpenSans-Bold-webfont.eot" />
+    <Content Include="Content\fonts\opensans\OpenSans-Bold-webfont.ttf" />
+    <Content Include="Content\fonts\opensans\OpenSans-Bold-webfont.woff" />
+    <Content Include="Content\fonts\opensans\OpenSans-BoldItalic-webfont.eot" />
+    <Content Include="Content\fonts\opensans\OpenSans-BoldItalic-webfont.ttf" />
+    <Content Include="Content\fonts\opensans\OpenSans-BoldItalic-webfont.woff" />
+    <Content Include="Content\fonts\opensans\OpenSans-ExtraBold-webfont.eot" />
+    <Content Include="Content\fonts\opensans\OpenSans-ExtraBold-webfont.ttf" />
+    <Content Include="Content\fonts\opensans\OpenSans-ExtraBold-webfont.woff" />
+    <Content Include="Content\fonts\opensans\OpenSans-ExtraBoldItalic-webfont.eot" />
+    <Content Include="Content\fonts\opensans\OpenSans-ExtraBoldItalic-webfont.ttf" />
+    <Content Include="Content\fonts\opensans\OpenSans-ExtraBoldItalic-webfont.woff" />
+    <Content Include="Content\fonts\opensans\OpenSans-Italic-webfont.eot" />
+    <Content Include="Content\fonts\opensans\OpenSans-Italic-webfont.ttf" />
+    <Content Include="Content\fonts\opensans\OpenSans-Italic-webfont.woff" />
+    <Content Include="Content\fonts\opensans\OpenSans-Light-webfont.eot" />
+    <Content Include="Content\fonts\opensans\OpenSans-Light-webfont.ttf" />
+    <Content Include="Content\fonts\opensans\OpenSans-Light-webfont.woff" />
+    <Content Include="Content\fonts\opensans\OpenSans-LightItalic-webfont.eot" />
+    <Content Include="Content\fonts\opensans\OpenSans-LightItalic-webfont.ttf" />
+    <Content Include="Content\fonts\opensans\OpenSans-LightItalic-webfont.woff" />
+    <Content Include="Content\fonts\opensans\OpenSans-Regular-webfont.eot" />
+    <Content Include="Content\fonts\opensans\OpenSans-Regular-webfont.ttf" />
+    <Content Include="Content\fonts\opensans\OpenSans-Regular-webfont.woff" />
+    <Content Include="Content\fonts\opensans\OpenSans-Semibold-webfont.eot" />
+    <Content Include="Content\fonts\opensans\OpenSans-Semibold-webfont.ttf" />
+    <Content Include="Content\fonts\opensans\OpenSans-Semibold-webfont.woff" />
+    <Content Include="Content\fonts\opensans\OpenSans-SemiboldItalic-webfont.eot" />
+    <Content Include="Content\fonts\opensans\OpenSans-SemiboldItalic-webfont.ttf" />
+    <Content Include="Content\fonts\opensans\OpenSans-SemiboldItalic-webfont.woff" />
+    <Content Include="Scripts\js\init.js" />
+    <Content Include="Scripts\js\jquery-1.10.2.min.js" />
+    <Content Include="Scripts\js\jquery-migrate-1.2.1.min.js" />
+    <Content Include="Scripts\js\jquery.fittext.js" />
+    <Content Include="Scripts\js\jquery.flexslider.js" />
+    <Content Include="Scripts\js\magnific-popup.js" />
+    <Content Include="Scripts\js\modernizr.js" />
+    <Content Include="Scripts\js\waypoints.js" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -164,15 +304,12 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Images\" />
     <Folder Include="Models\" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="fonts\glyphicons-halflings-regular.woff" />
-    <Content Include="fonts\glyphicons-halflings-regular.ttf" />
-    <Content Include="fonts\glyphicons-halflings-regular.eot" />
     <Content Include="packages.config" />
     <None Include="Project_Readme.html" />
-    <Content Include="Scripts\jquery-1.10.2.min.map" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
@@ -208,6 +345,7 @@
     </PropertyGroup>
     <Error Condition="!Exists('..\packages\Microsoft.Net.Compilers.1.0.0\build\Microsoft.Net.Compilers.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.Net.Compilers.1.0.0\build\Microsoft.Net.Compilers.props'))" />
     <Error Condition="!Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\build\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\build\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props'))" />
+    <Error Condition="!Exists('..\packages\JavaScriptEngineSwitcher.V8.2.0.0\build\JavaScriptEngineSwitcher.V8.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\JavaScriptEngineSwitcher.V8.2.0.0\build\JavaScriptEngineSwitcher.V8.props'))" />
   </Target>
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
        Other similar extension points exist, see Microsoft.Common.targets.
