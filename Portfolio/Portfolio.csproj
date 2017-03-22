@@ -309,6 +309,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />
+    <Content Include="Content\Resume\Resume_DC_Tech.docx" />
     <None Include="Project_Readme.html" />
   </ItemGroup>
   <PropertyGroup>
