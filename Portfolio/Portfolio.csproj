@@ -279,6 +279,13 @@
     <Content Include="Content\fonts\opensans\OpenSans-SemiboldItalic-webfont.eot" />
     <Content Include="Content\fonts\opensans\OpenSans-SemiboldItalic-webfont.ttf" />
     <Content Include="Content\fonts\opensans\OpenSans-SemiboldItalic-webfont.woff" />
+    <Content Include="Images\header-background.jpg" />
+    <Content Include="Images\loader.gif" />
+    <Content Include="Images\overlay-bg.png" />
+    <Content Include="Images\overlay-zoom.png" />
+    <Content Include="Images\profilepic.jpg" />
+    <Content Include="Images\sample-image.jpg" />
+    <Content Include="Images\testimonials-bg.jpg" />
     <Content Include="Scripts\js\init.js" />
     <Content Include="Scripts\js\jquery-1.10.2.min.js" />
     <Content Include="Scripts\js\jquery-migrate-1.2.1.min.js" />
@@ -304,7 +311,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Images\" />
     <Folder Include="Models\" />
   </ItemGroup>
   <ItemGroup>
