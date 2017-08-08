@@ -152,7 +152,7 @@
       $.ajax({
 
 	      type: "POST",
-	      url: "inc/sendEmail.php",
+	      url: "Custom/sendEmail.ashx",
 	      data: data,
 	      success: function(msg) {
 
