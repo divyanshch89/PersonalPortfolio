@@ -1,10 +1,9 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
+using System.Configuration;
+using System.Net;
 using System.Net.Mail;
 using System.Text;
-using System.Configuration;
+using System.Web;
 
 namespace Portfolio.Custom
 {
@@ -20,25 +19,25 @@ namespace Portfolio.Custom
         public void ProcessRequest(HttpContext context)
         {//reading QS and intializing the message properties
             context.Response.ContentType = "text/plain";
-            //if (context.Request.RequestType == "POST")
-            //{
-            try
+            if (context.Request.RequestType == "POST")
             {
-                ReadQuesryString(context);
-                //sending the mail
-                SendMail();
-                context.Response.Write("OK");
+                try
+                {
+                    ReadQuesryString(context);
+                    //sending the mail
+                    SendMail();
+                    context.Response.Write("OK");
+                }
+                catch (Exception e)
+                {
+                    context.Response.Write(e.Message);
+                }
             }
-            catch (Exception e)
+            else
             {
-                context.Response.Write(e.Message);
+                //not allowed
+                context.Response.Write("Not allowed");
             }
-            //}
-            //else
-            //{
-            //    //not allowed
-            //    context.Response.Write("Not allowed");
-            //}
 
         }
 
@@ -52,13 +51,16 @@ namespace Portfolio.Custom
                 Timeout = 10000,
                 DeliveryMethod = SmtpDeliveryMethod.Network,
                 UseDefaultCredentials = false,
-                Credentials = new System.Net.NetworkCredential(EncryptionHelper.Decrypt(ConfigurationManager.AppSettings["EmailMailer"]), ConfigurationManager.AppSettings["EmailMailerPwd"])
+                Credentials = new NetworkCredential(EncryptionHelper.Decrypt(ConfigurationManager.AppSettings["EmailMailer"]), EncryptionHelper.Decrypt(ConfigurationManager.AppSettings["EmailMailerPwd"]))
             };
-            var mail = new MailMessage(ContactEmail, EncryptionHelper.Decrypt(ConfigurationManager.AppSettings["EmailTo"]), ContactSubject, ContactMessage)
+            var bodyText = string.Format("You received a message from {0}\n\n----------------------------------------------------------------------\n\n{1}", ContactName, ContactMessage);
+            var mail = new MailMessage(ContactEmail, EncryptionHelper.Decrypt(ConfigurationManager.AppSettings["EmailTo"]), ContactSubject, bodyText)
             {
                 BodyEncoding = Encoding.UTF8,
                 DeliveryNotificationOptions = DeliveryNotificationOptions.OnFailure
             };
+            //send a carbon copy to the sender
+            mail.CC.Add(ContactEmail);
             client.Send(mail);
         }
 
