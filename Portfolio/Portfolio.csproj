@@ -212,6 +212,14 @@
     <Content Include="Images\loader.gif" />
     <Content Include="Images\overlay-bg.png" />
     <Content Include="Images\overlay-zoom.png" />
+    <Content Include="Images\portfolio\coffee.jpg" />
+    <Content Include="Images\portfolio\console.jpg" />
+    <Content Include="Images\portfolio\into-the-light.jpg" />
+    <Content Include="Images\portfolio\judah.jpg" />
+    <Content Include="Images\portfolio\modals\m-coffee.jpg" />
+    <Content Include="Images\portfolio\modals\m-console.jpg" />
+    <Content Include="Images\portfolio\modals\m-intothelight.jpg" />
+    <Content Include="Images\portfolio\modals\m-judah.jpg" />
     <Content Include="Images\profilepic.jpg" />
     <Content Include="Images\sample-image.jpg" />
     <Content Include="Images\tamu_logo.JPG" />
