@@ -67,6 +67,17 @@
         width: 50%;
     }
 
+    #about .certlogo {
+        width: 90px;
+        height: 80px;
+        float: left;
+    }
+
+    #about .certlogo1 {
+        width: 130px;
+        height: 100px;
+    }
+
     /* Resume Section
    ------------------------------------------------------------------- */
     #resume h1 {
@@ -264,6 +275,9 @@
         padding-right: 30px;
     }
 
+    #about .certlogo1, #about .certlogo {
+        display: none;
+    }
 
     /* Resume Section
    --------------------------------------------------------------------- */

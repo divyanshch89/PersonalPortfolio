@@ -210,6 +210,8 @@
     <Content Include="Global.asax" />
     <Content Include="Images\header-background.jpg" />
     <Content Include="Images\loader.gif" />
+    <Content Include="Images\MCSA WebApps-logo-Wht.png" />
+    <Content Include="Images\MS_Cert_Professional_logo_Wht_rgb.png" />
     <Content Include="Images\overlay-bg.png" />
     <Content Include="Images\overlay-zoom.png" />
     <Content Include="Images\portfolio\coffee.jpg" />

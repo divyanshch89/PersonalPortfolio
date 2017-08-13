@@ -73,7 +73,8 @@ header {
 
         header .banner-text h3 {
             font: 18px/1.9em 'librebaskerville-regular', serif;
-            color: #A8A8A8;
+            /*color: #A8A8A8;*/
+            color: #c2c2c2;
             margin: 0 auto;
             width: 70%;
             text-shadow: 0px 1px 2px rgba(0, 0, 0, .5);
@@ -205,6 +206,7 @@ ul#nav {
         ul#nav li.current a {
             color: #F06000;
         }
+
         ul#nav li a:hover {
             color: #F06000;
         }
@@ -254,6 +256,7 @@ ul#nav {
     #about .download {
         width: 58.33333%;
         padding-top: 6px;
+        height: 95px;
     }
 
     #about .main-col {
@@ -261,7 +264,7 @@ ul#nav {
     }
 
     #about .download .button {
-        margin-top: 6px;
+        /*margin-top: 6px;*/
         background: #444;
     }
 
@@ -275,7 +278,25 @@ ul#nav {
             font-size: 20px;
         }
 
+    #about ul.intro {
+        list-style-type: circle;
+    }
 
+        #about ul.intro li {
+            margin-left: 18px;
+        }
+
+    #about .certlogo {
+        /*width: 110px;*/
+        height: 80px;
+        float: left;
+    }
+
+    #about .certlogo1 {
+        /*width:150px;*/
+        height: 100px;
+        margin-top: -20px;
+    }
 /* ------------------------------------------------------------------ */
 /* d. Resume Section
 /* ------------------------------------------------------------------ */
