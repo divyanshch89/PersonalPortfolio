@@ -53,15 +53,24 @@ namespace Portfolio.Custom
                 UseDefaultCredentials = false,
                 Credentials = new NetworkCredential(EncryptionHelper.Decrypt(ConfigurationManager.AppSettings["EmailMailer"]), EncryptionHelper.Decrypt(ConfigurationManager.AppSettings["EmailMailerPwd"]))
             };
-            var bodyText = string.Format("You received a message from {0}\n\n----------------------------------------------------------------------\n\n{1}", ContactName, ContactMessage);
+            var bodyText = string.Format("You received a message from {0} ({1})\n\n----------------------------------------------------------------------\n\n{2}", ContactName, ContactEmail, ContactMessage);
             var mail = new MailMessage(ContactEmail, EncryptionHelper.Decrypt(ConfigurationManager.AppSettings["EmailTo"]), ContactSubject, bodyText)
             {
                 BodyEncoding = Encoding.UTF8,
                 DeliveryNotificationOptions = DeliveryNotificationOptions.OnFailure
             };
             //send a carbon copy to the sender
-            mail.CC.Add(ContactEmail);
+            // mail.CC.Add(ContactEmail);
             client.Send(mail);
+            //send a respone mail to the sender
+            bodyText = string.Format("Hi,\n\nThanks for reaching out to me. I will get in touch with you as soon as I can.\n\nRegards,\nDivyansh Chaudhary");
+            mail = new MailMessage(EncryptionHelper.Decrypt(ConfigurationManager.AppSettings["EmailTo"]), ContactEmail, "Message from Divyansh Chaudhary", bodyText)
+            {
+                BodyEncoding = Encoding.UTF8,
+                DeliveryNotificationOptions = DeliveryNotificationOptions.OnFailure
+            };
+            client.Send(mail);
+            client.Dispose();
         }
 
         private void ReadQuesryString(HttpContext context)
