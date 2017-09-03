@@ -278,11 +278,12 @@ ul#nav {
             font-size: 20px;
         }
 
-    ul.intro {
+    ul.intro, ul.intro {
         list-style-type: square;
+        color:#7A7A7A;
     }
 
-        ul.intro li {
+        ul.intro li,  ul.intro li {
             margin-left: 30px;
         }
 
