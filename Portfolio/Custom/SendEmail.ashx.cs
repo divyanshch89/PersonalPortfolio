@@ -53,6 +53,16 @@ namespace Portfolio.Custom
                 UseDefaultCredentials = false,
                 Credentials = new NetworkCredential(EncryptionHelper.Decrypt(ConfigurationManager.AppSettings["EmailMailer"]), EncryptionHelper.Decrypt(ConfigurationManager.AppSettings["EmailMailerPwd"]))
             };
+            //var client = new SmtpClient()
+            //{
+            //    Port = 25,
+            //    Host = "relay-hosting.secure.net",
+            //    EnableSsl = false,
+            //    Timeout = 10000,
+            //    DeliveryMethod = SmtpDeliveryMethod.Network,
+            //    UseDefaultCredentials = false,
+            //    Credentials = new NetworkCredential(EncryptionHelper.Decrypt(ConfigurationManager.AppSettings["EmailMailer"]), EncryptionHelper.Decrypt(ConfigurationManager.AppSettings["EmailMailerPwd"]))
+            //};
             var bodyText = string.Format("You received a message from {0} ({1})\n\n----------------------------------------------------------------------\n\n{2}", ContactName, ContactEmail, ContactMessage);
             var mail = new MailMessage(ContactEmail, EncryptionHelper.Decrypt(ConfigurationManager.AppSettings["EmailTo"]), ContactSubject, bodyText)
             {
