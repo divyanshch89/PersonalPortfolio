@@ -249,7 +249,6 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />
-    <Content Include="Content\Resume\Resume_DC_Tech.docx" />
     <Content Include="Custom\SendEmail.ashx" />
     <Content Include="Content\font-awesome\fonts\fontawesome-webfont.eot" />
     <Content Include="Content\font-awesome\fonts\fontawesome-webfont.ttf" />
@@ -323,6 +322,7 @@
     <Content Include="Content\fonts\opensans\OpenSans-SemiboldItalic-webfont.eot" />
     <Content Include="Content\fonts\opensans\OpenSans-SemiboldItalic-webfont.ttf" />
     <Content Include="Content\fonts\opensans\OpenSans-SemiboldItalic-webfont.woff" />
+    <Content Include="Content\Resume\Resume_DC_Tech.pdf" />
     <None Include="Project_Readme.html" />
     <None Include="Properties\PublishProfiles\CustomProfile.pubxml" />
     <None Include="Properties\PublishProfiles\CustomProfile1.pubxml" />
