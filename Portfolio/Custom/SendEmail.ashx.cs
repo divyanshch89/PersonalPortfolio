@@ -45,12 +45,12 @@ namespace Portfolio.Custom
         {
             var client = new SmtpClient()
             {
-                Port = 587,
-                Host = "smtp.gmail.com",
-                EnableSsl = true,
-                Timeout = 10000,
-                DeliveryMethod = SmtpDeliveryMethod.Network,
-                UseDefaultCredentials = false,
+                //Port = 587,
+                //Host = "smtp.gmail.com",
+                // EnableSsl = true,
+                //Timeout = 10000,
+                //DeliveryMethod = SmtpDeliveryMethod.Network,
+                //seDefaultCredentials = false,
                 Credentials = new NetworkCredential(EncryptionHelper.Decrypt(ConfigurationManager.AppSettings["EmailMailer"]), EncryptionHelper.Decrypt(ConfigurationManager.AppSettings["EmailMailerPwd"]))
             };
             //var client = new SmtpClient()
