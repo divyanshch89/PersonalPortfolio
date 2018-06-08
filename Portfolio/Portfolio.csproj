@@ -24,6 +24,7 @@
     <UseGlobalApplicationHostFile />
     <NuGetPackageImportStamp>
     </NuGetPackageImportStamp>
+    <Use64BitIISExpress />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -208,14 +209,19 @@
     <Content Include="Images\MS_Cert_Professional_logo_Wht_rgb.png" />
     <Content Include="Images\overlay-bg.png" />
     <Content Include="Images\overlay-zoom.png" />
+    <Content Include="Images\portfolio\Career_Tracking_thumbnail.PNG" />
     <Content Include="Images\portfolio\coffee.jpg" />
     <Content Include="Images\portfolio\console.jpg" />
+    <Content Include="Images\portfolio\Dominics_thumbnail.PNG" />
+    <Content Include="Images\portfolio\Easy_chef_thumbnail.PNG" />
     <Content Include="Images\portfolio\into-the-light.jpg" />
     <Content Include="Images\portfolio\judah.jpg" />
     <Content Include="Images\portfolio\modals\m-coffee.jpg" />
     <Content Include="Images\portfolio\modals\m-console.jpg" />
     <Content Include="Images\portfolio\modals\m-intothelight.jpg" />
     <Content Include="Images\portfolio\modals\m-judah.jpg" />
+    <Content Include="Images\portfolio\phd_flash_thumbail.jpg" />
+    <Content Include="Images\portfolio\wt5b196572300a2-thumb_large.jpg" />
     <Content Include="Images\profilepic.jpg" />
     <Content Include="Images\sample-image.jpg" />
     <Content Include="Images\tamu_logo.JPG" />

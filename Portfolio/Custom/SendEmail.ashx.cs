@@ -30,7 +30,7 @@ namespace Portfolio.Custom
                 }
                 catch (Exception e)
                 {
-                    context.Response.Write(e.Message);
+                    context.Response.Write(string.Format("Message: {0}, Stacktrace: {1}", e.Message, e.StackTrace));
                 }
             }
             else
@@ -43,40 +43,49 @@ namespace Portfolio.Custom
 
         private void SendMail()
         {
-            var client = new SmtpClient()
-            {
-                //Port = 587,
-                //Host = "smtp.gmail.com",
-                // EnableSsl = true,
-                //Timeout = 10000,
-                //DeliveryMethod = SmtpDeliveryMethod.Network,
-                //seDefaultCredentials = false,
-                Credentials = new NetworkCredential(EncryptionHelper.Decrypt(ConfigurationManager.AppSettings["EmailMailer"]), EncryptionHelper.Decrypt(ConfigurationManager.AppSettings["EmailMailerPwd"]))
-            };
             //var client = new SmtpClient()
             //{
-            //    Port = 25,
-            //    Host = "relay-hosting.secure.net",
-            //    EnableSsl = false,
+            //    Port = 587,
+            //    Host = "smtp.gmail.com",
+            //    EnableSsl = true,
             //    Timeout = 10000,
             //    DeliveryMethod = SmtpDeliveryMethod.Network,
-            //    UseDefaultCredentials = false,
+            //    //setDefaultCredentials = false,
             //    Credentials = new NetworkCredential(EncryptionHelper.Decrypt(ConfigurationManager.AppSettings["EmailMailer"]), EncryptionHelper.Decrypt(ConfigurationManager.AppSettings["EmailMailerPwd"]))
             //};
+            var client = new SmtpClient()
+            {
+                //Port = 25,
+                //Host = "relay-hosting.secureserver.net",
+                // EnableSsl = false,
+                // Timeout = 10000,
+                //DeliveryMethod = SmtpDeliveryMethod.Network,
+                //UseDefaultCredentials = false,
+                Credentials = new NetworkCredential(EncryptionHelper.Decrypt(ConfigurationManager.AppSettings["EmailMailer"]), EncryptionHelper.Decrypt(ConfigurationManager.AppSettings["EmailMailerPwd"]))
+            };
             var bodyText = string.Format("You received a message from {0} ({1})\n\n----------------------------------------------------------------------\n\n{2}", ContactName, ContactEmail, ContactMessage);
             var mail = new MailMessage(ContactEmail, EncryptionHelper.Decrypt(ConfigurationManager.AppSettings["EmailTo"]), ContactSubject, bodyText)
             {
                 BodyEncoding = Encoding.UTF8,
+                Priority = MailPriority.High,
                 DeliveryNotificationOptions = DeliveryNotificationOptions.OnFailure
             };
+            var mail1 = new MailMessage
+            {
+                From = new MailAddress(ContactEmail)
+            };
+            mail1.To.Add(new MailAddress(EncryptionHelper.Decrypt(ConfigurationManager.AppSettings["EmailTo"])));
+            mail1.Subject = ContactSubject;
+            mail1.Body = bodyText;
             //send a carbon copy to the sender
             // mail.CC.Add(ContactEmail);
-            client.Send(mail);
+            client.Send(mail1);
             //send a respone mail to the sender
             bodyText = string.Format("Hi,\n\nThanks for reaching out to me. I will get in touch with you as soon as I can.\n\nRegards,\nDivyansh Chaudhary");
             mail = new MailMessage(EncryptionHelper.Decrypt(ConfigurationManager.AppSettings["EmailTo"]), ContactEmail, "Message from Divyansh Chaudhary", bodyText)
             {
                 BodyEncoding = Encoding.UTF8,
+                Priority = MailPriority.Normal,
                 DeliveryNotificationOptions = DeliveryNotificationOptions.OnFailure
             };
             client.Send(mail);
